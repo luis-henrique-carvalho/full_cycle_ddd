@@ -1,13 +1,15 @@
-class Customer {
+import Address from "./address";
+
+export default class Customer {
   _id: string;
-  _name: string = "";
-  _email: string = "";
+  _name: string;
   _active: boolean = true;
-  _address: string = "";
+  _address!: Address;
 
   constructor(id: string, name: string) {
     this._id = id;
     this._name = name;
+    this.validate();
   }
 
   validate() {
@@ -30,5 +32,9 @@ class Customer {
 
   desactivate() {
     this._active = false;
+  }
+
+  set address(address: Address) {
+    this._address = address;
   }
 }

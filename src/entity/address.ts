@@ -1,4 +1,4 @@
-class Adress {
+export default class Address {
   _street: string = "";
   _number: number = 0;
   _zip: string = "";
@@ -25,5 +25,9 @@ class Adress {
     if (this._city.length < 0) {
       throw new Error("Invalid city");
     }
+  }
+
+  toString() {
+    return `${this._street} ${this._number}, ${this._zip} ${this._city}`;
   }
 }
