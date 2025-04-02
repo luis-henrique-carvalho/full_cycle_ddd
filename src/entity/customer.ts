@@ -13,10 +13,10 @@ export default class Customer {
   }
 
   validate() {
-    if (this._name.length < 0) {
+    if (this._name.length === 0) {
       throw new Error("Invalid customer name");
     }
-    if (this._id.length < 0) {
+    if (this._id.length === 0) {
       throw new Error("Invalid customer id");
     }
   }
@@ -27,11 +27,18 @@ export default class Customer {
   }
 
   activate() {
+    if (this._address === undefined) {
+      throw new Error("Invalid customer address");
+    }
     this._active = true;
   }
 
   desactivate() {
     this._active = false;
+  }
+
+  isActive(): boolean {
+    return this._active;
   }
 
   set address(address: Address) {
