@@ -25,7 +25,7 @@ describe("Customer unit tests", () => {
 
     customer.changeName("Jane Doe");
 
-    expect(customer._name).toBe("Jane Doe");
+    expect(customer.name).toBe("Jane Doe");
   });
 
   it("should deactivate customer", () => {
