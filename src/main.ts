@@ -9,7 +9,7 @@ let address = new Address("Main St", 4, "Springfield", "USA");
 costumer.address = address;
 costumer.activate();
 
-const item1 = new OrderItem("1", "item1", 10, "1");
-const item2 = new OrderItem("2", "item2", 20, "1");
+const item1 = new OrderItem("1", "item1", 10, "1", 2);
+const item2 = new OrderItem("2", "item2", 20, "1", 3);
 
 const order = new Order("1", "123", [item1, item2]);
