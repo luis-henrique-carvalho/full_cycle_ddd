@@ -6,7 +6,6 @@ import {
   HasMany,
 } from "sequelize-typescript";
 import OrderItemModel from "./order-item.model";
-
 @Table({
   tableName: "products",
   timestamps: false,
@@ -27,5 +26,5 @@ export default class ProductModel extends Model {
   declare price: number;
 
   @HasMany(() => OrderItemModel)
-  declare orderItems?: OrderItemModel[];
+  declare items: OrderItemModel[];
 }

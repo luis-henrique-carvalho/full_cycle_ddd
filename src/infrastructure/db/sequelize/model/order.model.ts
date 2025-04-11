@@ -25,14 +25,14 @@ export default class OrderModel extends Model {
   })
   declare customerId: string;
 
+  @BelongsTo(() => CustomerModel)
+  declare customer: CustomerModel;
+
+  @HasMany(() => OrderItemModel)
+  declare items: OrderItemModel[];
+
   @Column({
     allowNull: false,
   })
   declare total: number;
-
-  @BelongsTo(() => CustomerModel)
-  declare customer?: CustomerModel;
-
-  @HasMany(() => OrderItemModel)
-  declare orderItems?: OrderItemModel[];
 }
