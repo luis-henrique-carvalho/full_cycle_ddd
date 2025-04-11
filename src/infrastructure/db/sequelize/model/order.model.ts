@@ -3,28 +3,35 @@ import {
   PrimaryKey,
   Table,
   Model,
+  ForeignKey,
+  BelongsTo,
   HasMany,
 } from "sequelize-typescript";
+import CustomerModel from "./customer.model";
 import OrderItemModel from "./order-item.model";
 
 @Table({
-  tableName: "products",
+  tableName: "orders",
   timestamps: false,
 })
-export default class ProductModel extends Model {
+export default class OrderModel extends Model {
   @PrimaryKey
   @Column
   declare id: string;
 
+  @ForeignKey(() => CustomerModel)
   @Column({
     allowNull: false,
   })
-  declare name: string;
+  declare customerId: string;
 
   @Column({
     allowNull: false,
   })
-  declare price: number;
+  declare total: number;
+
+  @BelongsTo(() => CustomerModel)
+  declare customer?: CustomerModel;
 
   @HasMany(() => OrderItemModel)
   declare orderItems?: OrderItemModel[];
