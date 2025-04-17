@@ -5,7 +5,7 @@ import {
   Model,
   HasMany,
 } from "sequelize-typescript";
-import OrderItemModel from "./order-item.model";
+import OrderItemModel from "../../../order/repository/sequelize/order-item.model";
 @Table({
   tableName: "products",
   timestamps: false,
